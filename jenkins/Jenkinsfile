@@ -272,10 +272,13 @@ pipeline {
 
     // ─── Post Actions ──────────────────────────────
     post {
-        always {
-            echo 'Pipeline completed - cleaning up Docker credentials'
-            sh 'docker logout || true'
-        }
+  always {
+    node {
+      echo 'Pipeline completed - cleaning up Docker credentials'
+      sh 'docker logout || true'
+    }
+  }
+
         success {
             echo '''
             ╔══════════════════════════════════════╗
