@@ -2,6 +2,10 @@ pipeline {
 
     agent any
 
+    tools {
+    nodejs 'node18'
+    }
+
     environment {
 
         // Jenkins credential ID
