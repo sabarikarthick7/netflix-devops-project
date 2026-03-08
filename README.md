@@ -1,4 +1,8 @@
-# 🎬 Netflix Clone — DevOps Deployment
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/400px-Netflix_2015_logo.svg.png" alt="Netflix" width="200"/>
+
+  ## DevOps Deployment Project
+</div>
 
 A Netflix-style streaming UI deployed with Docker, Kubernetes & Jenkins CI/CD.
 
@@ -20,6 +24,38 @@ A Netflix-style streaming UI deployed with Docker, Kubernetes & Jenkins CI/CD.
 | Orchestration | Kubernetes (Minikube) |
 | CI/CD | Jenkins |
 | Registry | DockerHub |
+
+---
+
+## 🏗 Architecture
+
+```
+Developer
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+Jenkins CI/CD Pipeline
+    ├── Install Dependencies
+    ├── Run Tests
+    ├── Build React App
+    ├── Build Docker Images
+    └── Push Images to DockerHub
+    │
+    ▼
+DockerHub Registry
+    │
+    ▼
+Kubernetes Cluster (Minikube)
+    ├── Frontend Deployment (React + Nginx)
+    ├── Backend Deployment (Node.js + Express)
+    ├── Frontend Service (NodePort :30000)
+    └── Backend Service (ClusterIP :5000)
+    │
+    ▼
+User Access → http://<MINIKUBE-IP>:30000
+```
 
 ---
 
